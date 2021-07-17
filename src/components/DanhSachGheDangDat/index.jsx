@@ -6,7 +6,7 @@ export default function DanhSachGheDangDat() {
     const dispatch = useDispatch();
     const handleDelete = (soGhe) => {
         const action = {
-            //dùng chung action này luôn vì lên reducer nó cũng check là ghế này tồn tại chưa,
+            // dùng chung action này luôn vì lên reducer nó cũng check là ghế này tồn tại chưa,
             // trường hợp này sẽ rơi vào trường hợp đã tồn tại nên nó sẽ xóa
             type: 'CHON_GHE',
             payload: soGhe,
@@ -15,7 +15,7 @@ export default function DanhSachGheDangDat() {
     };
     return (
         <ContainerWrapper>
-            {danhSachGheDangDat.length === 0 && ( //kiểm tra có trống ghế hay không, làm thêm
+            {danhSachGheDangDat.length === 0 && (
                 <tr>
                     <td colSpan='2'>
                         <h4 className='text-warning py-2'>

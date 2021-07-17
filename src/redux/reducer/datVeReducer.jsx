@@ -257,14 +257,15 @@ export const datVeReducer = (state = stateInitial, action) => {
                 (item) => item.soGhe === action.payload
             );
             gheThayDoi.isBooking = !gheThayDoi.isBooking;
-            state.danhSachGhe = [...state.danhSachGhe]; // phải tạo lại state thế này redux nó mới biết là mình mới thay đổi
+            state.danhSachGhe = [...state.danhSachGhe];
             // ===============
 
             // Thay đổi giá trị cho danhSachGheDangDat
-            
-            if ( state.danhSachGheDangDat.some( (item) => item.soGhe === action.payload ) ) {
-                // Kiểm tra xem có trong danh sách đã đặt chưa, nếu có rồi thì xóa, chưa có thì thêm vô
-                // hàm some là hàm check đã tồn tại số ghế này trong danhSachGheDangDat hay chưa
+            if (
+                state.danhSachGheDangDat.some(
+                    (item) => item.soGhe === action.payload
+                )
+            ) {
                 state.danhSachGheDangDat = state.danhSachGheDangDat.filter(
                     (item) => item.soGhe !== action.payload
                 );
@@ -274,9 +275,7 @@ export const datVeReducer = (state = stateInitial, action) => {
                     ...state.danhSachGheDangDat,
                     gheThayDoi,
                 ];
-                // console.log('them ghe da dat: ', state.danhSachGheDangDat);
             }
-            // ======================
             break;
         default:
             break;
